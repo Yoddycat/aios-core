@@ -1,11 +1,13 @@
 {
-  "name": "bmad-method",
+  "name": "aios-fullstack",
   "version": "4.31.0",
-  "description": "Breakthrough Method of Agile AI-driven Development",
+  "description": "AIOS-FULLSTACK: AI-Orchestrated System for Full Stack Development",
   "main": "tools/cli.js",
   "bin": {
-    "bmad": "tools/bmad-npx-wrapper.js",
-    "bmad-method": "tools/bmad-npx-wrapper.js"
+    "aios": "tools/aios-npx-wrapper.js",
+    "aios-fullstack": "tools/aios-npx-wrapper.js",
+    "bmad-method": "tools/aios-npx-wrapper.js",
+    "bmad": "tools/aios-npx-wrapper.js"
   },
   "scripts": {
     "build": "node tools/cli.js build",
@@ -13,7 +15,8 @@
     "build:teams": "node tools/cli.js build --teams-only",
     "list:agents": "node tools/cli.js list:agents",
     "validate": "node tools/cli.js validate",
-    "install:bmad": "node tools/installer/bin/bmad.js install",
+    "install:aios": "node tools/installer/bin/aios.js install",
+    "install:bmad": "node tools/installer/bin/aios.js install",
     "format": "prettier --write \"**/*.md\"",
     "version:patch": "node tools/version-bump.js patch",
     "version:minor": "node tools/version-bump.js minor",
@@ -34,7 +37,6 @@
   },
   "dependencies": {
     "@kayvan/markdown-tree-parser": "^1.5.0",
-    "bmad-method": "^4.30.3",
     "chalk": "^4.1.2",
     "commander": "^14.0.0",
     "fs-extra": "^11.3.0",
@@ -50,13 +52,15 @@
     "development",
     "methodology",
     "agents",
-    "bmad"
+    "bmad",
+    "aios",
+    "fullstack"
   ],
   "author": "Brian (BMad) Madison",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bmadcode/BMAD-METHOD.git"
+    "url": "git+https://github.com/allfluenceinc/aios-fullstack.git"
   },
   "engines": {
     "node": ">=20.0.0"
@@ -64,6 +68,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "aios-fullstack": "^4.31.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.1",
     "prettier": "^3.5.3",
