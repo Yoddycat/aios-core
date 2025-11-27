@@ -2,7 +2,7 @@
 
 **ID:** 2.0 | **Épico:** [EPIC-S2](../../../epics/epic-s2-modular-architecture.md)
 **Sprint:** 2 | **Points:** 3 | **Priority:** 🔴 Critical | **Created:** 2025-01-27
-**Author:** Pax 🎯 (PO)
+**Author:** Pax 🎯 (PO) | **Status:** ✅ Complete
 
 ## 📊 User Story
 **Como** arquiteto, **Quero** limpar 257 arquivos deprecated do .aios-core/, **Para** ter baseline limpo antes da migração modular
@@ -195,3 +195,4 @@ claude-opus-4-5-20250901
 |------|--------|--------|
 | 2025-01-27 | Story created during PO review of Story 2.1 | Pax 🎯 |
 | 2025-11-27 | All tasks completed, 275 files cleaned up | Dex 💻 |
+| 2025-11-27 | Story marked Complete, pushed to main | Pax 🎯 |
