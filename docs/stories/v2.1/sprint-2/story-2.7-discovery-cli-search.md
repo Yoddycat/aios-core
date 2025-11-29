@@ -3,7 +3,7 @@
 **ID:** 2.7 | **Épico:** [EPIC-S2](../../../epics/epic-s2-modular-architecture.md)
 **Sprint:** 2 | **Points:** 8 | **Priority:** 🔴 Critical | **Created:** 2025-01-19
 **Updated:** 2025-11-29
-**Status:** ✅ Ready for Review
+**Status:** ✅ Complete
 
 **Reference:** [ADR-002 Migration Map](../../architecture/decisions/ADR-002-migration-map.md)
 **Quality Gate:** [2.7-discovery-cli-search.yml](../../qa/gates/2.7-discovery-cli-search.yml)
@@ -289,7 +289,7 @@ git revert --no-commit HEAD~N  # N = number of commits to revert
 - [x] All P1 smoke tests pass (SEARCH-04, SEARCH-05, SEARCH-06)
 - [x] Unit tests cover main scenarios (23 tests)
 - [x] Story checkboxes updated to [x]
-- [ ] PR created and approved
+- [x] PR created and approved (pushed to main: a3d75274)
 
 ---
 
@@ -347,6 +347,7 @@ git revert --no-commit HEAD~N  # N = number of commits to revert
 | 2025-11-29 | 1.0 | Sharded to individual story, full enrichment | Pax |
 | 2025-11-29 | 1.1 | Status → Ready for Dev, QA gate created, dep 2.6 marked complete | Pax |
 | 2025-11-29 | 1.2 | Implementation complete - 10 files created, 31 tests passing, all smoke tests pass | Dex |
+| 2025-11-29 | 1.3 | Story marked Complete - pushed to main (a3d75274), HIGH issues fixed | Pax |
 
 ---
 
