@@ -1,14 +1,14 @@
 # Backlog
 
-**Generated:** 2025-11-29T14:45:00.000Z
-**Total Items:** 4
+**Generated:** 2025-11-30T12:00:00.000Z
+**Total Items:** 5
 
 ---
 
 ## 📊 Summary by Type
 
 - 📌 **Follow-up**: 1
-- 🔧 **Technical Debt**: 3
+- 🔧 **Technical Debt**: 4
 - ✨ **Enhancement**: 0
 
 ---
@@ -20,6 +20,7 @@
 | 1763298742141 | 🔧 Technical Debt | Add unit tests for decision-log-generator | 🟠 High | [6.1.2.6](../stories/6.1.2.6.md) | 2 hours | `testing`, `decision-logging` | @dev |
 | 1732891500001 | 🔧 Technical Debt | Core Module Security Hardening | 🟠 High | [2.2](v2.1/sprint-2/story-2.2-core-module.md) | 4 hours | `security`, `core`, `coderabbit` | @qa |
 | 1732891500002 | 🔧 Technical Debt | Core Module Code Quality Fixes | 🟡 Medium | [2.2](v2.1/sprint-2/story-2.2-core-module.md) | 2 hours | `quality`, `core`, `coderabbit` | @qa |
+| 1732978800001 | 🔧 Technical Debt | Fix Pre-existing Test Suite Failures | 🟡 Medium | [1.4](v2.1/sprint-1/story-1.4-ide-selection.md) | 30 min | `testing`, `technical-debt` | @github-devops |
 
 ---
 
