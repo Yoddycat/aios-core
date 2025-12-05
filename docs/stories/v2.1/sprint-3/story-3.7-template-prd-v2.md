@@ -3,7 +3,7 @@
 **ID:** 3.7 | **Epic:** [EPIC-S3](../../../epics/epic-s3-quality-templates.md)
 **Sprint:** 3 | **Points:** 3 | **Priority:** 🟠 High | **Created:** 2025-01-19
 **Updated:** 2025-12-04
-**Status:** ✅ Completed
+**Status:** Done
 
 **Reference:** [Decisão 9 - Template Engine](../../../audits/PEDRO-DECISION-LOG.md#decisão-9)
 
