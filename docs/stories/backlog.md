@@ -61,14 +61,33 @@
 
 ---
 
-## 🔧 Technical Debt (4 items) → **Consolidated in [Story 4.1](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md)**
+## 🔧 Technical Debt (5 items)
 
 | ID | Type | Title | Priority | Related Story | Effort | Tags | Created By |
 |----|------|-------|----------|---------------|--------|------|------------|
-| 1763298742141 | 🔧 Technical Debt | Add unit tests for decision-log-generator | 🟠 High | [4.1 Task 1](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 2 hours | `testing`, `decision-logging` | @dev |
-| 1732891500001 | 🔧 Technical Debt | Core Module Security Hardening | 🟠 High | [4.1 Task 2](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 4 hours | `security`, `core`, `coderabbit` | @qa |
-| 1732891500002 | 🔧 Technical Debt | Core Module Code Quality Fixes | 🟡 Medium | [4.1 Task 3](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 2 hours | `quality`, `core`, `coderabbit` | @qa |
-| 1732978800001 | 🔧 Technical Debt | Fix Pre-existing Test Suite Failures | 🟡 Medium | [4.1 Task 4](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 30 min | `testing`, `technical-debt` | @github-devops |
+| 1763298742141 | 🔧 Technical Debt | ~~Add unit tests for decision-log-generator~~ | ✅ Done | [4.1 Task 1](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 2 hours | `testing`, `decision-logging` | @dev |
+| 1732891500001 | 🔧 Technical Debt | ~~Core Module Security Hardening~~ | ✅ Done | [4.1 Task 2](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 4 hours | `security`, `core`, `coderabbit` | @qa |
+| 1732891500002 | 🔧 Technical Debt | ~~Core Module Code Quality Fixes~~ | ✅ Done | [4.1 Task 3](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 2 hours | `quality`, `core`, `coderabbit` | @qa |
+| 1732978800001 | 🔧 Technical Debt | ~~Fix Pre-existing Test Suite Failures~~ | ✅ Done | [4.1 Task 4](v2.1/sprint-4/story-4.1-technical-debt-cleanup.md) | 30 min | `testing`, `technical-debt` | @github-devops |
+| 1733427600001 | 🔧 Technical Debt | Fix Flaky CI Tests (migration-backup, environment-configuration) | 🟡 Medium | - | 2-4 hours | `testing`, `ci`, `flaky-tests`, `infrastructure` | @github-devops |
+
+### 🆕 Flaky CI Tests (ID: 1733427600001)
+
+**Created:** 2025-12-05 | **Source:** PR #26 CI Failures
+
+**Problem:** Two test files cause intermittent CI failures due to file system race conditions:
+- `tests/unit/migration-backup.test.js` - Backup creation timing issues
+- `packages/installer/tests/integration/environment-configuration.test.js` - Directory cleanup race (`ENOTEMPTY`)
+
+**Impact:** Cross-Platform CLI Tests fail on all 9 platform/node combinations despite code being correct.
+
+**Proposed Fix:**
+- [ ] Add proper async cleanup with retry logic
+- [ ] Use `fs.rm()` with `{ force: true, maxRetries: 3 }` options
+- [ ] Add `beforeAll`/`afterAll` hooks with timeout guards
+- [ ] Consider test isolation with unique temp directories per test
+
+**Workaround (current):** Tests pass locally and in isolation; full suite has race conditions.
 
 ---
 
