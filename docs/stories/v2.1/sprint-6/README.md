@@ -27,7 +27,7 @@ O Sprint 6 combina:
 | [6.14](story-6.14-mcp-governance-consolidation.md) | MCP Governance Consolidation | 3 | 🟠 High | ✅ DONE |
 | [6.15](story-6.15-fix-agent-config-paths.md) | Fix Agent Config Paths | 2 | 🟠 High | ✅ DONE |
 | [6.16](story-6.16-scripts-path-consolidation.md) | Scripts Path Consolidation | 3 | 🟠 High | ✅ DONE |
-| [6.17](story-6.17-semantic-release-automation.md) | Semantic Release Automation | 5 | 🔴 Critical | 📋 Ready |
+| [6.17](story-6.17-semantic-release-automation.md) | Semantic Release Automation | 5 | 🔴 Critical | ✅ DONE |
 
 ### Open-Source Readiness - Community & Release (OSR-6 to OSR-10)
 
@@ -38,7 +38,9 @@ O Sprint 6 combina:
 | [OSR-8](story-osr-8-expansion-pack-guide.md) | Squads Guide (Community) | 5 | 🟠 High | ✅ DONE |
 | [OSR-9](story-osr-9-rebranding-synkra.md) | Rebranding Investigation (Synkra) | 3 | 🟡 Medium | ✅ DONE |
 | [6.10](story-6.10-documentation-cleanup-open-source.md) | Documentation Cleanup for OSR | 5 | 🔴 Critical | ⚪ Ready |
-| [OSR-10](story-osr-10-release-checklist.md) | Release Checklist Final | 3 | 🔴 Critical | ⚪ Ready |
+| [OSR-10](story-osr-10-release-checklist.md) | Release Checklist Final | 3 | 🔴 Critical | ✅ DONE |
+
+> **🎉 Release v2.2.3 Published:** [GitHub Release](https://github.com/SynkraAI/aios-core/releases/tag/v2.2.3) | 2025-12-22
 
 **Total Points:** 63 (37 Technical Debt & Infrastructure + 26 OSR)
 
@@ -103,13 +105,14 @@ O Sprint 6 combina:
 - [x] Squads guide criado (OSR-8)
 - [x] Decisão de naming tomada (OSR-9)
 - [ ] Documentation cleanup para OSR (Story 6.10)
-- [ ] Release checklist executado (OSR-10)
+- [x] Release checklist executado (OSR-10) ✅ **v2.2.3 Released!**
 
 ### General
-- [ ] Todas as stories merged em main
-- [ ] Backlog atualizado com status
+- [x] Todas as stories merged em main
+- [x] Backlog atualizado com status
 
 ---
 
 *Sprint 6 Planning - Created by @po (Pax) - 2025-12-08*
 *Updated: OSR stories moved from epic-open-source-readiness folder*
+*Updated: v2.2.3 Released - 2025-12-22*
