@@ -4,7 +4,7 @@
 <!-- Context: Fix config file duplication in squad-creator -->
 <!-- Created: 2025-12-26 by @architect (Aria) -->
 
-## Status: Ready for Review
+## Status: Done ✅
 
 **Priority:** HIGH
 **Sprint:** 13
@@ -12,6 +12,7 @@
 **Lead:** @dev (Dex)
 **Approved by:** @po (Pax) - 2025-12-26
 **Implemented by:** @dev (Dex) - 2025-12-26
+**Merged:** PR #23 - 2025-12-26
 
 ---
 
