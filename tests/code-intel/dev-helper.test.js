@@ -8,6 +8,7 @@ const {
   _formatSuggestion,
   _calculateRiskLevel,
   RISK_THRESHOLDS,
+  REUSE_MIN_REFS,
 } = require('../../.aios-core/core/code-intel/helpers/dev-helper');
 
 // Mock the code-intel module
@@ -119,6 +120,24 @@ describe('DevHelper', () => {
       expect(getEnricher).not.toHaveBeenCalled();
     });
 
+    it('should return null for null/undefined fileName', async () => {
+      const result1 = await checkBeforeWriting(null, 'desc');
+      const result2 = await checkBeforeWriting(undefined, 'desc');
+      const result3 = await checkBeforeWriting('', 'desc');
+      expect(result1).toBeNull();
+      expect(result2).toBeNull();
+      expect(result3).toBeNull();
+    });
+
+    it('should return null for null/undefined description', async () => {
+      const result1 = await checkBeforeWriting('file.js', null);
+      const result2 = await checkBeforeWriting('file.js', undefined);
+      const result3 = await checkBeforeWriting('file.js', '');
+      expect(result1).toBeNull();
+      expect(result2).toBeNull();
+      expect(result3).toBeNull();
+    });
+
     it('should return null if enricher throws', async () => {
       setupProviderAvailable();
       createMockEnricher({
@@ -198,6 +217,12 @@ describe('DevHelper', () => {
 
       expect(result).toBeNull();
     });
+
+    it('should return null for null/undefined/empty symbol', async () => {
+      expect(await suggestReuse(null)).toBeNull();
+      expect(await suggestReuse(undefined)).toBeNull();
+      expect(await suggestReuse('')).toBeNull();
+    });
   });
 
   // === T6: assessRefactoringImpact with blast radius ===
@@ -254,6 +279,13 @@ describe('DevHelper', () => {
       expect(result.riskLevel).toBe('MEDIUM');
     });
 
+    it('should return null for non-array or empty files input', async () => {
+      expect(await assessRefactoringImpact(null)).toBeNull();
+      expect(await assessRefactoringImpact(undefined)).toBeNull();
+      expect(await assessRefactoringImpact('not-array')).toBeNull();
+      expect(await assessRefactoringImpact([])).toBeNull();
+    });
+
     // === T7: assessRefactoringImpact without provider ===
     it('should return null without throw when no provider (T7)', async () => {
       setupProviderUnavailable();
@@ -300,6 +332,12 @@ describe('DevHelper', () => {
 
       expect(result).toBeNull();
     });
+
+    it('should return null for null/undefined/empty targetPath', async () => {
+      expect(await getConventionsForPath(null)).toBeNull();
+      expect(await getConventionsForPath(undefined)).toBeNull();
+      expect(await getConventionsForPath('')).toBeNull();
+    });
   });
 
   // === T9: All functions fallback (provider unavailable) ===
@@ -340,6 +378,21 @@ describe('DevHelper', () => {
 
     it('should return HIGH for MEDIUM_MAX + 1', () => {
       expect(_calculateRiskLevel(RISK_THRESHOLDS.MEDIUM_MAX + 1)).toBe('HIGH');
+    });
+
+    it('should default to LOW for undefined/null/NaN input', () => {
+      expect(_calculateRiskLevel(undefined)).toBe('LOW');
+      expect(_calculateRiskLevel(null)).toBe('LOW');
+      expect(_calculateRiskLevel(NaN)).toBe('LOW');
+      expect(_calculateRiskLevel('not-a-number')).toBe('LOW');
+    });
+  });
+
+  describe('REUSE_MIN_REFS constant', () => {
+    it('should be exported and be a positive number', () => {
+      expect(REUSE_MIN_REFS).toBeDefined();
+      expect(typeof REUSE_MIN_REFS).toBe('number');
+      expect(REUSE_MIN_REFS).toBeGreaterThan(0);
     });
   });
 

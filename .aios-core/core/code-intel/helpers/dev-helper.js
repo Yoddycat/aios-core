@@ -6,7 +6,7 @@ const { getEnricher, getClient, isCodeIntelAvailable } = require('../index');
 const RISK_THRESHOLDS = {
   LOW_MAX: 4,       // 0-4 refs = LOW
   MEDIUM_MAX: 15,   // 5-15 refs = MEDIUM
-                     // >15 refs = HIGH
+  // >15 refs = HIGH
 };
 
 // Minimum references to suggest REUSE (>threshold = REUSE, <=threshold = ADAPT)
@@ -28,6 +28,9 @@ const REUSE_MIN_REFS = 2;
  * @returns {Promise<{duplicates: Object, references: Array, suggestion: string}|null>}
  */
 async function checkBeforeWriting(fileName, description) {
+  if (!fileName || !description) {
+    return null;
+  }
   if (!isCodeIntelAvailable()) {
     return null;
   }
@@ -65,6 +68,9 @@ async function checkBeforeWriting(fileName, description) {
  * @returns {Promise<{file: string, line: number, references: number, suggestion: string}|null>}
  */
 async function suggestReuse(symbol) {
+  if (!symbol) {
+    return null;
+  }
   if (!isCodeIntelAvailable()) {
     return null;
   }
@@ -103,6 +109,9 @@ async function suggestReuse(symbol) {
  * @returns {Promise<{patterns: Array, stats: Object}|null>}
  */
 async function getConventionsForPath(targetPath) {
+  if (!targetPath) {
+    return null;
+  }
   if (!isCodeIntelAvailable()) {
     return null;
   }
@@ -123,6 +132,9 @@ async function getConventionsForPath(targetPath) {
  * @returns {Promise<{blastRadius: number, riskLevel: string, references: Array, complexity: Object}|null>}
  */
 async function assessRefactoringImpact(files) {
+  if (!Array.isArray(files) || files.length === 0) {
+    return null;
+  }
   if (!isCodeIntelAvailable()) {
     return null;
   }
@@ -184,10 +196,11 @@ function _formatSuggestion(dupes, nameRefs) {
  * @private
  */
 function _calculateRiskLevel(blastRadius) {
-  if (blastRadius <= RISK_THRESHOLDS.LOW_MAX) {
+  const radius = typeof blastRadius === 'number' && !Number.isNaN(blastRadius) ? blastRadius : 0;
+  if (radius <= RISK_THRESHOLDS.LOW_MAX) {
     return 'LOW';
   }
-  if (blastRadius <= RISK_THRESHOLDS.MEDIUM_MAX) {
+  if (radius <= RISK_THRESHOLDS.MEDIUM_MAX) {
     return 'MEDIUM';
   }
   return 'HIGH';
