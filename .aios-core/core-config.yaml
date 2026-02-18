@@ -202,10 +202,9 @@ github:
   semantic_release:
     enabled: true
 coderabbit_integration:
-  enabled: true
-  installation_mode: wsl
-  wsl_config:
-    distribution: Ubuntu
+  enabled: false
+  installation_mode: native
+  native_config:
     installation_path: ~/.local/bin/coderabbit
     working_directory: ${PROJECT_ROOT}
   self_healing:
@@ -220,12 +219,12 @@ coderabbit_integration:
     LOW: ignore
   graceful_degradation:
     skip_if_not_installed: true
-    fallback_message: 'CodeRabbit CLI not found. Skipping automated review. Install via: pip install coderabbit-cli'
+    fallback_message: 'CodeRabbit CLI not found. Skipping automated review. Install via: pip3 install coderabbit-cli'
   commands:
     qa_pre_review_uncommitted: |
-      wsl bash -c 'cd ${PROJECT_ROOT} && ~/.local/bin/coderabbit --prompt-only -t uncommitted'
+      ~/.local/bin/coderabbit --prompt-only -t uncommitted
     qa_story_review_committed: |
-      wsl bash -c 'cd ${PROJECT_ROOT} && ~/.local/bin/coderabbit --prompt-only -t committed --base main'
+      ~/.local/bin/coderabbit --prompt-only -t committed --base main
   report_location: docs/qa/coderabbit-reports/
 squads:
   templateLocation: templates/squad
