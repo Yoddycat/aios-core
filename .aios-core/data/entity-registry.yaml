@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-02-18T11:49:05.420Z'
+  lastUpdated: '2026-02-18T11:49:31.195Z'
   entityCount: 520
   checksumAlgorithm: sha256
 entities:
@@ -9061,7 +9061,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:85a37f69147dd603376e1f245663e37b2a234c87c11d114323aa2a5beef678a1
-      lastVerified: '2026-02-18T11:49:05.415Z'
+      lastVerified: '2026-02-18T11:49:31.187Z'
   agents:
     aios-master:
       path: .aios-core/development/agents/aios-master.md
